@@ -15,7 +15,7 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
   public static final Logger LOG = LoggerFactory.getLogger(NECVEPlugin.class);
 
   private static final String[] DEFAULT_BINARY_SEARCH_DIRS = new String[]{
-      "/usr/bin", "/bin", "/opt/nec/ve/bin"};
+      "/usr/bin", "/bin", "/opt/nec/ve/bin", "~/"};
 
   private String binaryName = "veGet.py";
   private File binaryFile;
@@ -33,6 +33,7 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
       if (binaryFile.exists()) {
         found = true;
         this.binaryName = binaryFile.getAbsolutePath();
+        LOG.info("Found script \"{}\"", this.binaryName);
         break;
       }
     }
