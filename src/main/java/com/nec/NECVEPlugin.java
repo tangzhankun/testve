@@ -140,4 +140,12 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
     }
     return allocated;
   }
+
+  public static void main(String[] args) throws Exception {
+    NECVEPlugin plugin = new NECVEPlugin();
+    Set<Device> r = plugin.getDevices();
+    for (Device device : r) {
+      System.out.println(device);
+    }
+  }
 }
