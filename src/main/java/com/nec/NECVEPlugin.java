@@ -112,9 +112,11 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
         if (tokens[0].equals("dev")) {
           builder.setDevPath(tokens[1]);
         }
-        if (tokens[0].equals("state") &&
-            tokens[1].equals("ONLINE")) {
-          builder.setHealthy(true);
+        if (tokens[0].equals("state")) {
+          if(tokens[1].equals("ONLINE")) {
+            builder.setHealthy(true);
+          }
+          builder.setStatus(tokens[1]);
         }
         if (tokens[0].equals("busId")) {
           builder.setBusID(tokens[1]);
