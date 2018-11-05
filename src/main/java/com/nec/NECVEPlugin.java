@@ -6,14 +6,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
-  public DeviceRegisterRequest register() {
+
+  public DeviceRegisterRequest getRegisterRequestInfo() {
     return DeviceRegisterRequest.Builder.newInstance()
         .setResourceName("nec.com/ve").build();
   }
 
   public Set<Device> getDevices() {
-    // cat /sys/class/ve/ve0/device/uevent to get pci bus id
-    // use script or
+    // mock devices
     TreeSet<Device> r = new TreeSet<Device>();
     r.add(Device.Builder.newInstance().setID(0).setDevPath("/dev/ve0")
         .setMajorNumber(243)
@@ -33,7 +33,7 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
     return r;
   }
 
-  public DeviceRuntimeSpec onDevicesUse(Set<Device> set, String s) {
+  public DeviceRuntimeSpec onDevicesAllocated(Set<Device> set, String s) {
     return null;
   }
 
