@@ -73,22 +73,12 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
       e.printStackTrace();
     }
     return r;
-//    r.add(Device.Builder.newInstance().setID(0).setDevPath("/dev/ve0")
-//        .setMajorNumber(243)
-//        .setMinorNumber(0)
-//        .setBusID("0000:65:00.0")
-//        .setHealthy(true).build());
-//    r.add(Device.Builder.newInstance().setID(1).setDevPath("/dev/ve1")
-//        .setMajorNumber(243)
-//        .setMinorNumber(1)
-//        .setBusID("0000:65:01.0")
-//        .setHealthy(true).build());
-//    r.add(Device.Builder.newInstance().setID(2).setDevPath("/dev/ve2")
-//        .setMajorNumber(243)
-//        .setMinorNumber(2)
-//        .setBusID("0000:65:02.0")
-//        .setHealthy(true).build());
   }
+
+  public DeviceRuntimeSpec onDevicesAllocated(Set<Device> set, String s) {
+    return null;
+  }
+
   /**
    * Sample one line in output:
    * id=0, dev=/dev/ve0, state=ONLINE, busId=0000:65:00.0, major=243, minor=0
@@ -130,10 +120,6 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
       }// for key value pars
       r.add(builder.build());
     }
-  }
-
-  public DeviceRuntimeSpec onDeviceUse(Set<Device> allocatedDevices, String runtime) {
-    return null;
   }
 
   public void onDevicesReleased(Set<Device> releasedDevices) {
