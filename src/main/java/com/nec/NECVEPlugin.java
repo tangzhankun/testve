@@ -15,17 +15,17 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
   public Set<Device> getDevices() {
     // mock devices
     TreeSet<Device> r = new TreeSet<Device>();
-    r.add(Device.Builder.newInstance().setID(0).setDevPath("/dev/ve0")
+    r.add(Device.Builder.newInstance().setId(0).setDevPath("/dev/ve0")
         .setMajorNumber(243)
         .setMinorNumber(0)
         .setBusID("0000:65:00.0")
         .setHealthy(true).build());
-    r.add(Device.Builder.newInstance().setID(1).setDevPath("/dev/ve1")
+    r.add(Device.Builder.newInstance().setId(1).setDevPath("/dev/ve1")
         .setMajorNumber(243)
         .setMinorNumber(1)
         .setBusID("0000:65:01.0")
         .setHealthy(true).build());
-    r.add(Device.Builder.newInstance().setID(2).setDevPath("/dev/ve2")
+    r.add(Device.Builder.newInstance().setId(2).setDevPath("/dev/ve2")
         .setMajorNumber(243)
         .setMinorNumber(2)
         .setBusID("0000:65:02.0")
@@ -33,7 +33,8 @@ public class NECVEPlugin implements DevicePlugin, DevicePluginScheduler {
     return r;
   }
 
-  public DeviceRuntimeSpec onDevicesAllocated(Set<Device> set, String s) {
+  public DeviceRuntimeSpec onDevicesAllocated(Set<Device> set,
+      YarnRuntimeType yarnRuntimeType) throws Exception {
     return null;
   }
 
